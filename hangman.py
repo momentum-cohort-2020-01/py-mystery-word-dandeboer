@@ -57,12 +57,18 @@ class Mechanics:
                 self.guesses -= 1
                 if (self.guesses <= 0):
                     print(f"You lose! the word was {self.f}")
+                    self.reset = input("To play again enter 'reset', to exit enter any other key.")
+                    if self.reset == "reset":
+                        Game().start_game()
                 else:
                     print("Incorrect \n")
                     self.four()
             else:
                 if (self.char_one != "_") and (self.char_two != "_") and (self.char_three != "_") and (self.char_four != "_"):
                     print(f"The word was {self.f} \nYou Win!")
+                    self.reset = input("To play again enter 'reset', to exit enter any other key.")
+                    if self.reset == "reset":
+                        Game().start_game()
                 else:
                     print("")
                     self.four()

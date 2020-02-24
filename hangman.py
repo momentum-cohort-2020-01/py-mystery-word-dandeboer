@@ -3,14 +3,16 @@ import random
 
 class Game:
     def __init__(self):
-        self.f = open("testwords.txt", "r").read().lower().split()
+        self.f = open("words.txt", "r").read().lower().split()
+        self.list = []
+
     def start_game(self):
-        ran_num = random.randint(1,26)
-        if (len(self.f[ran_num]) == 4):
-            print("Your word is: \n")
-            Mechanics(self.f[ran_num]).four()
-        else:
-            Game().start_game()
+        for word in self.f:
+            if (len(word) == 4):
+                self.list.append(word)
+        self.ran_num = random.randint(0,len(self.list)-1)
+        print("Your word is: \n")
+        Mechanics(self.list[self.ran_num]).four()
 
     def difficulty(self):
         pass

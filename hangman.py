@@ -1,13 +1,16 @@
 # print(len(line[5]))
+import random
 
 class Game:
     def __init__(self):
         self.f = open("testwords.txt", "r").read().lower().split()
-# dont forget to close the text file at some point, or dont open it multiple times
-
     def start_game(self):
-        print("Your word is: \n")
-        Mechanics(self.f, 5).four()
+        ran_num = random.randint(1,26)
+        if (len(self.f[ran_num]) == 4):
+            print("Your word is: \n")
+            Mechanics(self.f[ran_num]).four()
+        else:
+            Game().start_game()
 
     def difficulty(self):
         pass
@@ -17,8 +20,8 @@ class Game:
 
 
 class Mechanics:
-    def __init__(self, f, x):
-        self.f = f[x]
+    def __init__(self, f):
+        self.f = f
         self.char_one = "_"
         self.char_two = "_"
         self.char_three = "_"
@@ -61,6 +64,5 @@ class Mechanics:
 
             
 
-
-
+# print(random.randint(1,26))
 Game().start_game()
